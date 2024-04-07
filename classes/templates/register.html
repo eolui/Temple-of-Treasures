@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<style>
+			body {font-family: Arial, Helvetica, sans-serif;}
+			form {
+				border: 3px solid #ccc;
+			}
+			
+			input[type=text], input[type=password], input[type=ftn], input[type=ltn], input[type=mail]
+			{
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+				border-radius: 4px;
+			}
+			
+			h1{
+			color: #E85A4F;
+			text-align: center;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+		p{
+			color: #8E8D8A;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+			button {
+  	background: #FF4742;
+  	border: 1px solid #FF4742;
+  	border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+button:active {
+  opacity: .5;
+}
+			
+			.container
+			{
+				padding: 16px;
+			}
+			
+			span.psw
+			{
+				float: right;
+				padding-top: 16px;
+			}
+			
+			.fieldError
+			{
+				color: red;
+			}
+			label{
+				color: #8E8D8A;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			}
+		</style>
+	</head>
+	
+	<body style="background-color: #FAF5E9;">
+		
+		<div layout:fragment="content">
+			<form action="#" th:action="@{add}" th:object="${registerModel}" method="post">
+			
+			<div class="container">
+				<label for="username"><b>Username</b></label>
+				<input type="text" th:field="${registerModel.username}" name="username" required>
+				
+				<label for="psw"><b>Password</b></label>
+				<input type="password" th:field="${registerModel.password}" name="psw" required>
+				 
+				<label for="firstName"><b>First Name</b></label>
+				<input type="ftn" th:field="${registerModel.firstName}" name="firstName" required>
+				
+				<label for="firstName"><b>Last Name</b></label>
+				<input type="ltn" th:field="${registerModel.lastName}" name="lastName" required>
+				
+				<label for="email"><b>Email</b></label>
+				<input type="mail" th:field="${registerModel.email}" name="email" required>
+				  
+				 <div>
+				<button type="submit">Register</button>
+			</div>
+			
+			<div class="container" style="background-color: #ddd">
+			</div>
+			 
+			
+		</form>
+		
+		</div>
+		
+	</body>
+	
+</html>
