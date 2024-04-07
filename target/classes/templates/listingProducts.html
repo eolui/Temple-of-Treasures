@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<style>
+			body {font-family: Arial, Helvetica, sans-serif;}
+			label{
+				color: #8E8D8A;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			}
+			h1{
+			color: #E85A4F;
+			text-align: center;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+			p{
+			color: #8E8D8A;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+			input[type=text], input[type=password], input[type=ftn], input[type=ltn], input[type=mail]
+			{
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+				border-radius: 4px;
+			}
+			
+			button {
+  	background: #FF4742;
+  	border: 1px solid #FF4742;
+  	border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+button:active {
+  opacity: .5;
+}
+			
+			.container
+			{
+				padding: 16px;
+			}
+			
+			span.psw
+			{
+				float: right;
+				padding-top: 16px;
+			}
+			
+			.fieldError
+			{
+				color: red;
+			}
+			
+		</style>
+	</head>
+	
+	<body style="background-color: #EAE7DC;">
+		
+		<div layout:fragment="content">
+			<br>
+			<h1>Add A Product</h1>
+			<form action="#" th:action="@{/products/addNew}" th:object="${productsModel}" method="post">
+			
+			<div class="container">
+				
+				<label for="name"><b>Name</b></label>
+				<input type="name" th:field="${productsModel.name}" name="name" required>
+				<br>
+				<br>
+				<div class="fieldError">
+					 <p th:if="${#fields.hasErrors('${productsModel.name}')}" th:errors="*{name}">Name Error</p>
+				 </div> 
+				
+				<label for="showMovies"><b>Tv Show/Movie</b></label>
+				<input type="showMovies" th:field="${productsModel.showMovies}" name="showMovies" required>
+				<br>
+				<br>
+				<div class="fieldError">
+					 <p th:if="${#fields.hasErrors('${productsModel.showMovies}')}" th:errors="*{showMovies}">Tv Show/Movie Error</p>
+				 </div> 
+				 
+				<label for="rarity"><b>Rarity</b></label>
+				<input type="rarity" th:field="${productsModel.rarity}" name="rarity" required>
+				<br>
+				<br>
+				<div class="fieldError">
+					 <p th:if="${#fields.hasErrors('${productsModel.rarity}')}" th:errors="*{rarity}">Rarity Error</p>
+				 </div> 
+				
+				<label for="year"><b>Year</b></label>	
+				<input type="year" th:field="${productsModel.year}" name="year" required>
+				<br>
+				<br>
+				<div class="fieldError">
+					 <p th:if="${#fields.hasErrors('${productsModel.year}')}" th:errors="*{year}">Year Error</p>
+				 </div> 
+				
+				<label for="category"><b>Category</b></label>
+				<input type="category" th:field="${productsModel.category}" name="category" required>
+				<br>
+				<br>
+				<div class="fieldError">
+					 <p th:if="${#fields.hasErrors('${productsModel.category}')}" th:errors="*{category}">Category Error</p>
+				 </div> 
+				
+				<label for="description"><b>Description</b></label>
+				<input type="description" th:field="${productsModel.description}" name="description" required>
+				<br>
+				<br>
+				<div class="fieldError">
+					 <p th:if="${#fields.hasErrors('${productsModel.description}')}" th:errors="*{description}">Description Error</p>
+				 </div> 
+				
+				<label for="price"><b>Price</b></label>
+				<input type="price" th:field="${productsModel.price}" name="price" required>
+				<br>
+				<br>
+				<label for="imageURL"><b>Image URL</b></label>
+				<input type="imageURL" th:field="${productsModel.imageURL}" name="imageURL" required>
+				  <br>
+				  <br>
+				 <div>
+				<button type="submit" href="productSuccess.html">Add</button>
+				</div>
+			</div>
+		</div>
+		</bodystyle="background-color: #EAE7DC;">
+	</body>
+</html>

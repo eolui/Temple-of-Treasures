@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<style>
+			*{
+				font-family: Arial;
+			}
+			p{
+			color: #8E8D8A;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+			table, th, td{
+				border: 1px solid #E98074;
+				border-collapse: collapse;
+				padding: 2px;
+			}
+			h1{
+			color: #E85A4F;
+			text-align: center;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+		td{
+			color: #8E8D8A;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+		th{
+			font-size:18px;
+			color: #8E8D8A;
+			font-weight: bold;
+			text-align: center;
+		}
+		</style>
+	</head>
+	
+	<body style="background-color: #EAE7DC;">
+		<div layout:fragment="content">
+			
+			<h1 th:text="${title}"></h1>
+		<table>
+			<tr>
+				<th>Product Name</th>
+				<th>TV Show/Movies</th>
+				<th>Rarity</th>
+				<th>Description</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="product : ${productsTable}">
+				<td th:text="${product.name}"></td>
+				<td th:text="${product.showMovies}"></td>
+				<td th:text="${product.rarity}"></td>
+				<td th:text="${product.description}"></td>
+				<td th:text="${product.price}"></td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<br>
+		<br>
+		</div>
+	</body>
+</html>
